@@ -1,0 +1,59 @@
+{
+  "name": "luckydown",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/luckydown.umd.js",
+  "module": "./dist/luckydown.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/luckydown.es.js",
+      "require": "./dist/luckydown.umd.js"
+    },
+    "./luckydown.css": "./dist/luckydown.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vue-tsc && vite build"
+  },
+  "peerDependencies": {
+    "@tiptap/core": "^3.26.0",
+    "@tiptap/extension-color": "^3.26.0",
+    "@tiptap/extension-highlight": "^3.26.0",
+    "@tiptap/extension-image": "^3.26.0",
+    "@tiptap/extension-placeholder": "^3.26.0",
+    "@tiptap/extension-subscript": "^3.26.0",
+    "@tiptap/extension-superscript": "^3.26.0",
+    "@tiptap/extension-task-item": "^3.26.0",
+    "@tiptap/extension-task-list": "^3.26.0",
+    "@tiptap/extension-text-align": "^3.26.0",
+    "@tiptap/extension-text-style": "^3.26.0",
+    "@tiptap/pm": "^3.26.0",
+    "@tiptap/starter-kit": "^3.26.0",
+    "@tiptap/suggestion": "^3.26.0",
+    "@tiptap/vue-3": "^3.26.0",
+    "antdv-next": "^1.3.3",
+    "lucide-vue-next": "^1.0.0",
+    "vue": "^3.5.32"
+  },
+  "peerDependenciesMeta": {
+    "@tiptap/pm": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@tsconfig/node24": "^24.0.4",
+    "@types/node": "^24.12.2",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "@vitejs/plugin-vue-jsx": "^5.1.5",
+    "@vue/tsconfig": "^0.9.1",
+    "typescript": "~6.0.0",
+    "vite": "^8.0.8",
+    "vite-plugin-dts": "^5.0.2",
+    "vue-tsc": "^3.2.6"
+  }
+}

@@ -1,0 +1,16 @@
+.lucky-command-dropdown {
+  min-width: 10rem;
+}
+
+.lucky-command-dropdown .ant-dropdown-menu-item {
+  line-height: 1.4 !important;
+}
+
+.lucky-command-dropdown .ant-dropdown-menu-item-group-title {
+  font-size: .75rem !important;
+  padding: .25rem .75rem .125rem .75rem !important;
+}
+
+.lucky-command-dropdown .ant-dropdown-menu-item-group-list {
+  margin: 0 !important;
+}
