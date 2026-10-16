@@ -215,9 +215,7 @@ export const insertNewBlock = (keys: string[], editor: Editor) => {
       editor.chain().focus().setHorizontalRule().run()
       break
     case 'image':
-      window.dispatchEvent(new CustomEvent('trigger-slash-image-upload'))
-      break
-    case 'table':
+      editor.chain().focus().setImage({ src: '' }).run()
       break
   }
 }

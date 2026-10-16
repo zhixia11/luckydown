@@ -1,6 +1,6 @@
 <template>
   <BubbleMenu ref="bubbleRef" :options="options" :editor="editor" :should-show="shouldShow"
-    class="lucky-bubble-menu-popover" @mousedown.prevent>
+    class="lucky-bubble-menu-popover" :append-to="appendToBody" @mousedown.prevent>
     <Button size="small" :color="state?.bold ? 'purple' : 'default'" variant="text" @click="onClick('bold')">
       <template #icon>
         <Bold :size="14" />
@@ -91,6 +91,7 @@ const props = defineProps({
   }
 })
 
+const selectionType = ref<string>('text')
 const state = ref<SelectionState>()
 const options = {
   onShow: () => {
@@ -99,11 +100,13 @@ const options = {
 }
 
 const shouldShow = ({ state }: { state: any }) => {
-  if (state.selection.node) {
-    return false
-  }
+  // if (state.selection.node) {
+  //   return false
+  // }
   return !state.selection.empty
 }
+
+const appendToBody = () => document.body
 
 const onClick = (keys: string | Array<string>) => {
   changeInlineStyle(keys, props.editor)
@@ -147,14 +150,12 @@ const onUnsetLink = () => {
   padding: .375rem .625rem;
   border-radius: .5rem;
   background-color: #ffffff;
-  border: 1px solid #722ed1;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12),
-    0 2px 4px -2px rgba(0, 0, 0, 0.16),
-    0 6px 16px 0 rgba(0, 0, 0, 0.08);
+  border: 1px solid #b37feb;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: center;
   gap: 6px;
-  z-index: 101;
+  z-index: 10001;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), top 0.2s, left 0.2s;
   will-change: transform, top, left;
 }

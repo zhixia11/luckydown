@@ -9,7 +9,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch, watchEffect, toRaw, onBeforeUnmount } from 'vue'
+import { ref, watch, toRaw, onBeforeUnmount } from 'vue'
 import { useEditor, EditorContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import { Subscript } from '@tiptap/extension-subscript'
@@ -20,7 +20,7 @@ import { Highlight } from '@tiptap/extension-highlight'
 import { TextAlign } from '@tiptap/extension-text-align'
 import { TaskList } from '@tiptap/extension-task-list'
 import { TaskItem } from '@tiptap/extension-task-item'
-import { Image } from '@tiptap/extension-image'
+import { ImageExt } from './extensions/image.ts'
 import { Placeholder } from '@tiptap/extension-placeholder'
 import FloatingHandle from './ui/FloatingHandle.vue'
 import BubbleMenu from './ui/BubbleMenu.vue'
@@ -80,7 +80,7 @@ const editor = useEditor({
     TaskItem.configure({
       nested: true,
     }),
-    Image.configure(),
+    ImageExt.configure(),
     Placeholder.configure({
       placeholder: readonly ? '' : placeholder
     }),
@@ -158,8 +158,9 @@ defineExpose({
 .luckydown-container {
   width: 100%;
   height: 100%;
+  overflow-y: auto;
   position: relative;
-  padding-left: 2.25rem;
+  padding: .5rem .5rem .5rem 2.25rem;
   border-radius: .675rem;
   background-color: #ffffff;
   box-sizing: border-box;
@@ -179,7 +180,7 @@ defineExpose({
   font-weight: 600;
   margin-top: 1.6rem;
   margin-bottom: 0.6rem;
-  line-height: 1.35;
+  line-height: 1.5;
   border-radius: .25rem;
 }
 
@@ -198,6 +199,7 @@ defineExpose({
 .luckydown-container p {
   margin-bottom: 0.5rem;
   border-radius: .25rem;
+  line-height: 1.5;
 }
 
 .luckydown-container blockquote {
@@ -378,7 +380,7 @@ defineExpose({
 }
 
 .luckydown-container .ProseMirror-selectednode {
-  border-radius: .5rem;
+  border-radius: .25rem;
   background-color: #efdbff9f;
 }
 </style>
